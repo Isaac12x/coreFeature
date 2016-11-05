@@ -2,7 +2,7 @@
 
 ## Setup
 ```bash
-pip install -U python-twitter numpy textblock google-api-python-client python-twitter geopy
+pip install -U python-twitter numpy textblock google-api-python-client python-twitter geopy django cherrypy mako
 python -m textblob.download_corpora
 ```
 
