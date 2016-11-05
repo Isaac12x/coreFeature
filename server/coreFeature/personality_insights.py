@@ -26,7 +26,7 @@ from mako.lookup import TemplateLookup
 class PersonalityInsightsService:
     """Wrapper on the Personality Insights service"""
 
-    def __init__(self, vcapServices):
+    def __init__(self):
         """
         Construct an instance. Fetches service parameters from VCAP_SERVICES
         runtime variable for Bluemix, or it defaults to local URLs.
@@ -54,7 +54,6 @@ class PersonalityInsightsService:
         	return json.loads(response.text)
         except:
             raise Exception("Error processing the request, HTTP: %d" % response.status_code)
-
 
 class DemoService(object):
     """
