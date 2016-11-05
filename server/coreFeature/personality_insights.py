@@ -48,79 +48,76 @@ class PersonalityInsightsService:
                           data=text
                           )
         try:
-        	text_file = open("Output.txt", "w")
-        	text_file.write(response.text)
-        	text_file.close()
         	return json.loads(response.text)
         except:
             raise Exception("Error processing the request, HTTP: %d" % response.status_code)
 
-class DemoService(object):
-    """
-    REST service/app. Since we just have 1 GET and 1 POST URLs,
-    there is not even need to look at paths in the request.
-    This class implements the handler API for cherrypy library.
-    """
-    exposed = True
+# class DemoService(object):
+#     """
+#     REST service/app. Since we just have 1 GET and 1 POST URLs,
+#     there is not even need to look at paths in the request.
+#     This class implements the handler API for cherrypy library.
+#     """
+#     exposed = True
 
-    def __init__(self, service):
-        self.service = service
-        self.defaultContent = None
-        try:
-            contentFile = open("public/text/en.txt", "r")
-            self.defaultContent = contentFile.read()
-        except Exception as e:
-            print "ERROR: couldn't read mobidick.txt: %s" % e
-        finally:
-            contentFile.close()
+#     def __init__(self, service):
+#         self.service = service
+#         self.defaultContent = None
+#         try:
+#             contentFile = open("public/text/en.txt", "r")
+#             self.defaultContent = contentFile.read()
+#         except Exception as e:
+#             print "ERROR: couldn't read mobidick.txt: %s" % e
+#         finally:
+#             contentFile.close()
 
-    def GET(self):
-        """Shows the default page with sample text content"""
+#     def GET(self):
+#         """Shows the default page with sample text content"""
 
-        return lookup.get_template("index.html").render(content=self.defaultContent)
-
-
-    def POST(self, text=None):
-        """
-        Send 'text' to the Personality Insights API
-        and return the response.
-        """
-        try:
-            profileJson = self.service.getProfile(text)
-            return json.dumps(profileJson)
-        except Exception as e:
-            print "ERROR: %s" % e
-            return str(e)
+#         return lookup.get_template("index.html").render(content=self.defaultContent)
 
 
-if __name__ == '__main__':
-    lookup = TemplateLookup(directories=["templates"])
+#     def POST(self, text=None):
+#         """
+#         Send 'text' to the Personality Insights API
+#         and return the response.
+#         """
+#         try:
+#             profileJson = self.service.getProfile(text)
+#             return json.dumps(profileJson)
+#         except Exception as e:
+#             print "ERROR: %s" % e
+#             return str(e)
 
-    # Get host/port from the Bluemix environment, or default to local
-    HOST_NAME = os.getenv("VCAP_APP_HOST", "127.0.0.1")
-    PORT_NUMBER = int(os.getenv("VCAP_APP_PORT", "3000"))
-    cherrypy.config.update({
-        "server.socket_host": HOST_NAME,
-        "server.socket_port": PORT_NUMBER,
-    })
 
-    # Configure 2 paths: "public" for all JS/CSS content, and everything
-    # else in "/" handled by the DemoService
-    conf = {
-        "/": {
-            "request.dispatch": cherrypy.dispatch.MethodDispatcher(),
-            "tools.response_headers.on": True,
-            "tools.staticdir.root": os.path.abspath(os.getcwd())
-        },
-        "/public": {
-            "tools.staticdir.on": True,
-            "tools.staticdir.dir": "./public"
-        }
-    }
+# if __name__ == '__main__':
+#     lookup = TemplateLookup(directories=["templates"])
 
-    # Create the Personality Insights Wrapper
-    personalityInsights = PersonalityInsightsService(os.getenv("VCAP_SERVICES"))
+#     # Get host/port from the Bluemix environment, or default to local
+#     HOST_NAME = os.getenv("VCAP_APP_HOST", "127.0.0.1")
+#     PORT_NUMBER = int(os.getenv("VCAP_APP_PORT", "3000"))
+#     cherrypy.config.update({
+#         "server.socket_host": HOST_NAME,
+#         "server.socket_port": PORT_NUMBER,
+#     })
 
-    # Start the server
-    print("Listening on %s:%d" % (HOST_NAME, PORT_NUMBER))
-    cherrypy.quickstart(DemoService(personalityInsights), "/", config=conf)
+#     # Configure 2 paths: "public" for all JS/CSS content, and everything
+#     # else in "/" handled by the DemoService
+#     conf = {
+#         "/": {
+#             "request.dispatch": cherrypy.dispatch.MethodDispatcher(),
+#             "tools.response_headers.on": True,
+#             "tools.staticdir.root": os.path.abspath(os.getcwd())
+#         },
+#         "/public": {
+#             "tools.staticdir.on": True,
+#             "tools.staticdir.dir": "./public"
+#         }
+#     }
+
+#     # Create the Personality Insights Wrapper
+#     personalityInsights = PersonalityInsightsService(os.getenv("VCAP_SERVICES"))
+
+#     # Start the server
+#     print("Listening on %s:%d" % (HOST_NAME, PORT_NUMBER))
+#     cherrypy.quickstart(DemoService(personalityInsights), "/", config=conf)
