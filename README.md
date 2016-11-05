@@ -2,7 +2,7 @@
 
 ## Setup
 ```bash
-pip install -U python-twitter numpy textblock google-api-python-client
+pip install -U python-twitter numpy textblock google-api-python-client python-twitter geopy
 python -m textblob.download_corpora
 ```
 
