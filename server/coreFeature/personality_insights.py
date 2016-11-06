@@ -16,11 +16,9 @@
 ## -*- coding: utf-8 -*-
 
 import os
-import cherrypy
 import requests
 import json
-from mako.template import Template
-from mako.lookup import TemplateLookup
+
 
 
 class PersonalityInsightsService:
