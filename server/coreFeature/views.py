@@ -5,6 +5,7 @@ from django.http import JsonResponse
 import json
 from personality_insights import PersonalityInsightsService
 from tone_analyzer import analyze_tone
+from AlchemyLanguageV1 import getAlchemyLanguageV1
 
 def index(request):
 
@@ -14,7 +15,11 @@ def index(request):
 
 	# return JsonResponse(json)
 
-	json = getToneAnalize(text)
+	# json = getToneAnalize(text)
+
+	# return HttpResponse(json)
+
+	json = getAlchemyLanguage(text)
 
 	return HttpResponse(json)
 
@@ -28,3 +33,6 @@ def getPersonalityInsights(text):
 	profileJson = personalityInsights.getProfile(text)
 	
 	return profileJson
+
+def getAlchemyLanguage(text):
+	return getAlchemyLanguageV1(text)
