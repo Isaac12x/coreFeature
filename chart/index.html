@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <title>London Chart</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+    </head>
+    <body>
+        <div style="width: 80%" align="center">
+            <canvas id="canvas"></canvas>
+        </div>
+        <script>
+        var chartData = {
+            labels: ["Camden",
+                     "Royal Borough of Greenwich",
+                     "Hackney",
+                     "Hammersmith and Fulham",
+                     "Islington",
+                     "Royal Borough of Kensington and Chelsea",
+                     "Lambeth",
+                     "Lewisham",
+                     "Southwark",
+                     "Tower Hamlets",
+                     "Wandsworth",
+                     "City of Westminster"],
+            datasets: [{
+                label: 'Polarity',
+                data: [
+                    -0.0275486464169,-0.0876528030303,0.0256135508992,-0.132177175055,-0.0271702417591,-0.0273573783817,-0.0267290097739,-0.0254871034224,-0.0272649710464,0.077918110477,-0.0266042184991,-0.0272649710464
+                ],
+                backgroundColor: '#87CEFA',
+                borderColor: '#87CEFA',
+                fill: true,
+                borderWidth: 1
+            }, {
+                label: 'Subjectivity',
+                data: [
+                    0.443191459873,0.512183203463,0.51486081876,0.529906955956,0.442973670234,0.442739209467,0.444178482114,0.523883378526,0.442933668836,0.53211305884,0.530813385299,0.442933668836
+                ],
+                backgroundColor: '#DC143C',
+                borderColor: '#DC143C',
+                fill: true,
+                borderWidth: 1
+            }]
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            window.myMixedChart = new Chart(ctx, {
+                type: 'bar',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Sentiment Analysis of #LGBT Tweets in London Boroughs'
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: true
+                    }
+                }
+            });
+        };
+        </script>
+    </body>
+</html>
