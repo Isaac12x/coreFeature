@@ -1,0 +1,118 @@
+div#carPicFront div, div#carPicFront span {
+    display:block;
+    position:absolute;
+    border:1px solid red;
+}
+div#botFront {
+    bottom:10%;
+    left:10%;
+    height:40%;
+    width:25%;
+}
+div#botFrontLeft {
+    bottom:10%;
+    left:5%;
+    height:40%;
+    width:5%;
+}
+div#botFrontRight {
+    bottom:10%;
+    left:35%;
+    height:40%;
+    width:18%;
+}
+div#midFront {
+    bottom:50%;
+    left:5%;
+    height:15%;
+    width:63%;
+}
+div#topFront {
+    bottom:65%;
+    left:30%;
+    height:25%;
+    width:60%;
+}
+div#tireFrontLeft {
+    bottom:10%;
+    left:53%;
+    height:40%;
+    width:15%;
+}
+div#sideLeft {
+    bottom:23%;
+    left:68%;
+    height:42%;
+    width:22%;
+}
+div#tireBackLeft {
+    bottom:30%;
+    left:90%;
+    height:30%;
+    width:7%;
+}
+div#topFrontBack {
+    bottom:60%;
+    left:90%;
+    height:15%;
+    width:7%;
+}
+div#carPicBack div, div#carPicBack span {
+    display:block;
+    position:absolute;
+    border:1px solid red;
+}
+div#botBack {
+    bottom:10%;
+    left:10%;
+    height:40%;
+    width:25%;
+}
+div#botBackLeft {
+    bottom:10%;
+    left:5%;
+    height:40%;
+    width:5%;
+}
+div#botBackRight {
+    bottom:10%;
+    left:35%;
+    height:40%;
+    width:13%;
+}
+div#midBack {
+    bottom:50%;
+    left:5%;
+    height:15%;
+    width:58%;
+}
+div#topBack {
+    bottom:65%;
+    left:8%;
+    height:25%;
+    width:80%;
+}
+div#tireBackRight {
+    bottom:10%;
+    left:48%;
+    height:40%;
+    width:15%;
+}
+div#sideRight {
+    bottom:23%;
+    left:63%;
+    height:42%;
+    width:25%;
+}
+div#tireFrontRight {
+    bottom:20%;
+    left:88%;
+    height:35%;
+    width:10%;
+}
+div#topBackFront {
+    bottom:55%;
+    left:88%;
+    height:15%;
+    width:10%;
+}
