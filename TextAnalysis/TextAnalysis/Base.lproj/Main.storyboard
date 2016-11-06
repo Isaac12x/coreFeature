@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sjw-8T-aVC">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TextAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" text="Provide some text to analyze" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZyB-Gg-Pea">
+                                <rect key="frame" x="19" y="59" width="336" height="509"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d10-2X-kN6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="TextAnalysis" id="Xqt-kS-coB"/>
+                                </items>
+                            </navigationBar>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pk7-oz-zPZ">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="L26-06-YPn"/>
+                                    <tabBarItem systemItem="more" id="dBo-2b-vJW"/>
+                                </items>
+                            </tabBar>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsk-mq-jbP">
+                                <rect key="frame" x="0.0" y="576" width="375" height="42"/>
+                                <color key="backgroundColor" red="0.077396517111317786" green="0.74797016731509935" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="d1Y-ix-ND1"/>
+                                </constraints>
+                                <state key="normal" title="Analyze">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZyB-Gg-Pea" secondAttribute="bottom" constant="50" id="3RC-Gn-80N"/>
+                            <constraint firstItem="d10-2X-kN6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="6y2-7X-vmy"/>
+                            <constraint firstItem="ZyB-Gg-Pea" firstAttribute="top" secondItem="d10-2X-kN6" secondAttribute="bottom" constant="15" id="87w-II-Irx"/>
+                            <constraint firstAttribute="trailing" secondItem="d10-2X-kN6" secondAttribute="trailing" id="8qj-79-GuX"/>
+                            <constraint firstItem="d10-2X-kN6" firstAttribute="trailing" secondItem="Fsk-mq-jbP" secondAttribute="trailing" id="Ppi-IK-iM9"/>
+                            <constraint firstItem="ZyB-Gg-Pea" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="3" id="Ttb-Xg-5iV"/>
+                            <constraint firstItem="ZyB-Gg-Pea" firstAttribute="centerX" secondItem="Fsk-mq-jbP" secondAttribute="centerX" id="ZDM-2Q-MUc"/>
+                            <constraint firstItem="d10-2X-kN6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n3X-W3-3CW"/>
+                            <constraint firstItem="Fsk-mq-jbP" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="wwf-9Y-ddJ"/>
+                            <constraint firstItem="d10-2X-kN6" firstAttribute="leading" secondItem="Fsk-mq-jbP" secondAttribute="leading" id="xrv-l7-43w"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" selectedImage="Analyse " systemItem="favorites" id="4Ax-eI-lzd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2453.5999999999999" y="-176.76161919040482"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="h86-Vf-mN1">
+            <objects>
+                <viewController id="78A-Sv-KfM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gBd-oC-Md2"/>
+                        <viewControllerLayoutGuide type="bottom" id="OTP-BA-Eqm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleAspectFit" id="3wv-Yb-htu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="pIZ-29-rVH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HKD-wg-t6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2454" y="542"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Njs-W0-O2j">
+            <objects>
+                <tabBarController id="sjw-8T-aVC" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="KGc-kR-kxz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="78A-Sv-KfM" kind="relationship" relationship="viewControllers" id="AiB-qf-7hU"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="poJ-ZI-d0u"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z0d-hu-pnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1607" y="99"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Analyse " width="1084" height="343"/>
+    </resources>
+</document>

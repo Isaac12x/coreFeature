@@ -1,17 +1,8 @@
 import httplib, urllib, base64
+import json
+from json import JSONEncoder
 
-
-text = {
-  "documents": [
-    {
-      "language": "en",
-      "id": "string",
-      "text": "Power BI transforms your company's data into rich visuals for you to collect and organize so you can focus on what matters to you",
-    }
-  ]
-}
-
-
+text = "Bring people from outside amazon to amazon (Facebook ads!!!) Amazon says thank you and give you free traffic!"
 
 
 def microsoftParse(what, text):
@@ -24,23 +15,39 @@ def microsoftParse(what, text):
     params = urllib.urlencode({
     })
 
+    rext = json.dumps(text)
+    
+    jsonString = JSONEncoder().encode({
+        "documents": [{"language": "en", "id": "string", "text": rext}]
+    })
+
+    print jsonString
+
+
     try:
         conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
         if what == "sentiment":
-            conn.request("POST", "/text/analytics/v2.0/sentiment_url?%s" % params, text, headers)
-        elif what == "keyPhrases":
+            conn.request("POST", "/text/analytics/v2.0/sentiment?%s" % params, jsonString, headers)
+            response = conn.getresponse()
+            data = response.read()
+            rs = json.load(data)
+            return rs
+            conn.close()
+
+        elif what == "phrases":
             conn.request("POST", "/text/analytics/v2.0/keyPhrases?%s" % params, text, headers)
+            response = conn.getresponse()
+            data = response.read()
+            return data
+            conn.close()
         else:
-            
+            print("you forget something")
 
-        response = conn.getresponse()
-        data = response.read()
-        print(data)
-        conn.close()
     except Exception as e:
-        print("[Errno {0}] {1}".format(e.errno, e.strerror))
+        print("Error")
 
 
-microsoftParse(topics, text)
+
+microsoftParse("sentiment", text)
 
 
