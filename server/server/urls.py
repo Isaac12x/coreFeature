@@ -23,5 +23,7 @@ import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('coreFeature.urls')),
-	url(r'^test.html', TemplateView.as_view(template_name='test.html')), 
+	url(r'^test.html', TemplateView.as_view(template_name='test.html')),
+    url(r'^sentiment.html', TemplateView.as_view(template_name='sentiment.html')), 
+    url(r'^dashboard.html', TemplateView.as_view(template_name='dashboard.html')), 
 ]
