@@ -309,22 +309,76 @@
   <script src="static/js/bootstrap-typeahead.js"></script>
   <script src="static/js/utility.js"></script>
   <script type="text/javascript">
-    
-    var info = {};
-
+  
     function getData(text, url) {
       
       var data = {
             text : text
       };
       data['csrfmiddlewaretoken'] = '{{ csrf_token }}';
+      // $.post( "api/"+url+'/', data, function( data ) {
+      //       info[url] = data;
+      //       if (jQuery.type(data) === "object") {
+      //         data = JSON.stringify(data);
+      //       }
+      //       addItem(url, data);
+      // });
       $.post( "api/"+url+'/', data, function( data ) {
-            info[url] = data;
-            // console.log(url + 'has finished.');
-            if (jQuery.type(data) === "object") {
-              data = JSON.stringify(data);
+            if(url === "PersonalityInsights") {
+              data = data['tree']['children'];
+              var output = "";
+              for(var item in data) {
+                  if(data[item]['id'] === "personality") {
+                    var psItem = data[item]['children'][0]['children'];
+                    for(attr in psItem) {
+                      // output += JSON.stringify(psItem[attr]) + '\n';
+                      output += psItem[attr]['name'] + ' : ' + psItem[attr]['percentage'] + ', \n';
+                    }
+                    addItem(url, output);
+                  }
+              }
             }
-            addItem(url, data);
+            else if(url === "ToneAnalize") {
+              data = JSON.parse(data);
+              data = data['document_tone']['tone_categories'];
+              var output = "";
+              for(var i in data) {
+                var item = data[i]['tones']
+                for(var j in item) {
+                  output += item[j]['tone_name'] + ' : ' + item[j]['score'] + ',\n';
+                }
+              }
+              addItem(url, output);
+            }
+            else {
+              var output = "";
+              data = JSON.parse(data);
+              
+              output += ' Concepts : '
+              for(var i in data['concepts']) {
+                output += data['concepts'][i]['text'] + ' = ' + data['concepts'][i]['relevance'] + ', ' 
+              }
+              output += ' DocEmotions : '
+              for(var key in data['docEmotions']) {
+                output += key + ' : ' + data['docEmotions'][key] + ', ' 
+              }
+              output += ' Entities : '
+              for(var i in data['entities']) {
+                output += data['entities'][i]['text'] + ' = ' + data['entities'][i]['relevance'] + ', ' 
+              }
+              output += ' Keywords : '
+              for(var i in data['keywords']) {
+                output += data['keywords'][i]['text'] + ' = ' + data['keywords'][i]['relevance'] + ', ' 
+              }
+              addItem(url, output);
+            }
+            // else {
+            //   info[url] = data;
+            //   if (jQuery.type(data) === "object") {
+            //     data = JSON.stringify(data);
+            //   }
+            //   addItem(url, data);
+            // }
       });
     }
 
