@@ -5,11 +5,17 @@
     $('#comment').bind('input propertychange', function() {
         if(this.value.length){
           // reset();
+          $('#showResult').empty();
           // spliteWords(this.value);
+          getData(this.value, 'PersonalityInsights');
           getData(this.value, 'AlchemyLanguage');
-          getData(this.value, 'ToneAnalize');          
+          getData(this.value, 'ToneAnalize');
         }
     });
+
+    function addItem(header, info) {
+      $('#showResult').append('<div class="row"><div class="callout callout-info"><h4>'+header+'</h4><p>'+info+'</p></div></div>');
+    }
 
     // function changeImg(id) {
     //   console.log( $("#" + id));

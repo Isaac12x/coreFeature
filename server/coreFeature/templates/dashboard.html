@@ -166,6 +166,8 @@
               <!-- /.box-body -->
             </div>
           </div>
+        <div class="col-md-12" id="showResult">
+        </div>
           <!-- <div class="row">
             <div class="col-md-4">
               <a class="btn btn-block btn-social btn-facebook">
@@ -308,17 +310,32 @@
   <script src="static/js/utility.js"></script>
   <script type="text/javascript">
     
+    var info = {};
+
     function getData(text, url) {
+      
       var data = {
             text : text
-        };
+      };
       data['csrfmiddlewaretoken'] = '{{ csrf_token }}';
       $.post( "api/"+url+'/', data, function( data ) {
-            console.log(data);
-            console.log(url + 'has finished.');
+            info[url] = data;
+            // console.log(url + 'has finished.');
+            if (jQuery.type(data) === "object") {
+              data = JSON.stringify(data);
+            }
+            addItem(url, data);
       });
     }
 
+    // function display(info) {
+    //   console.log(info);
+    //   for(var key in info) {
+    //     // console.log(info[key]);
+    //     console.log(key)
+    //     addItem(key, info[key]);
+    //   }
+    // }
     
   </script>
 </body>
