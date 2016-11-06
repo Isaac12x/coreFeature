@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "app">
+
+<link rel="stylesheet" href="css/graphPage.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Graph</title>
+</head>
+<body ng-controller="graphCtrl">
+
+<div class = "container customcontainer">
+    <div class = "dropdown">
+        <div id="dropdown_icon" class="glyphicon glyphicon-chevron-down" data-toggle="dropdown">
+
+    </div>
+        <ul class = "dropdown-menu">
+            <li class = "option" ng-repeat = "borough in boroughs" ng-click="selectOption(borough)">{{borough}}</li>
+        </ul>
+    </div>
+
+    <canvas class="chart chart-radar"
+            chart-data="data" chart-options="options" chart-labels="labels">
+    </canvas>
+
+</div>
+
+
+
+</body>
+</html>
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src = "bower_components/jquery/dist/jquery.js"></script>
+<script src="../resources/node_modules/angular-chart.js/node_modules/chart.js/dist/Chart.js"></script>
+<script src="../resources/node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+<script src = "bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src = "app.js"></script>
