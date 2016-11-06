@@ -14,11 +14,13 @@ class ViewController: UIViewController {
     var keyboardAdjusted = false
     var lastKeyboardOffset : CGFloat = 0.0
     
+    @IBOutlet weak var textToAnalyze: UITextView!
+    @IBOutlet weak var analyze: UIButton!
     //MARK: UIViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        analyze.setTitle("Analyze", for: UIControlState.normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +34,13 @@ class ViewController: UIViewController {
         self.unsubscribeFromKeyboardNotifications()
         self.removeKeyboardDismissRecognizer()
         
+        analyze.setTitle("Analyzing...", for: UIControlState.normal)
     }
+    
+    @IBAction func transitionToNextPage(_ sender: Any) {
+        
+    }
+    
     
     //KEYBOARD
         
@@ -58,10 +66,10 @@ class ViewController: UIViewController {
             NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         }
     
-        func keyboardWillShow(notification: NotificationCenter) {
+        func keyboardWillShow(notification: NSNotification) {
             
             if keyboardAdjusted == false {
-                lastKeyboardOffset = getKeyboardHeight(notification) / 2
+                lastKeyboardOffset = getKeyboardHeight(notification: notification)/2
                 self.view.superview?.frame.origin.y -= lastKeyboardOffset
                 keyboardAdjusted = true
             }

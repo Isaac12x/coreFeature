@@ -1,0 +1,23 @@
+PODS:
+  - Alamofire (4.0.1)
+  - Arrow (3.0.1)
+  - thenPromise (2.0.1)
+  - ws (2.0.0):
+    - Alamofire
+    - Arrow
+    - thenPromise
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - Arrow
+  - ws
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Arrow: 46908903654e20339d963367cddd4b56b6493af8
+  thenPromise: c1f29781b37450ea8d24bdbea4dd1d87a719e39e
+  ws: 36d81c4fda3d0d4309bad080a337f7373d4d2da0
+
+PODFILE CHECKSUM: 492751ab0453d723a6bf1b992c2461497d83de32
+
+COCOAPODS: 1.1.1

@@ -10,3 +10,5 @@ urlpatterns = [
     url(r'^PersonalityInsights/', views.PersonalityInsights, name='PersonalityInsights'),
 	url(r'^AlchemyLanguage/', views.AlchemyLanguage, name='AlchemyLanguage'),
 ]
+
+

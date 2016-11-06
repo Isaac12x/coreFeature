@@ -6,7 +6,7 @@ import json
 from personality_insights import PersonalityInsightsService
 from tone_analyzer import analyze_tone
 from AlchemyLanguageV1 import getAlchemyLanguageV1
-from sentiment import analyse_sentiment
+# from sentiment import analyse_sentiment
 
 def index(request):
 
